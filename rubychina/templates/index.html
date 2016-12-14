@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Latest Articles</div>
+          {% if latest_articles %}
+          <ul class="list-group">
+            {% for article in latest_articles %}
+            <li class="list-group-item">{{article.title}}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="panel-body">
+            <p> no articles at all</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Latest Nodes</div>
+          <div class="panel-body">
+            {% if latest_nodes %}
+            <div class="btn-group">
+            {% for node in latest_nodes %}
+            <button class="btn btn-default" type="button">{{node.node_name}}</button>
+            {% endfor %}
+            </div>
+            {% else %}
+            <p> no nodes at all</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
