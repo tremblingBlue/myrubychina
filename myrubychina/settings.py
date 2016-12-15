@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as message_constants
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -119,3 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Setting message tags
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'text-primary',
+    message_constants.INFO: 'text-info',
+    message_constants.SUCCESS: 'text-success',
+    message_constants.WARNING: 'text-warning',
+    message_constants.ERROR: 'text-danger',
+}

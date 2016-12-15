@@ -1,6 +1,6 @@
 {% extends 'extends/skeleton.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block body %}
     <div class="container-fluid">
@@ -8,10 +8,10 @@
             <div class="col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Login
+                        Register
                     </div>
                     <div class="panel-body">
-                        <form action="/login" method="POST" class="form">
+                        <form action="/register" method="POST" class="form">
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{next}}"/>
                             <div class="form-group">
@@ -22,6 +22,15 @@
                                 <label for="password" class="control-label">password</label>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
+                            <div class="form-group">
+                                <label for="confirm-password" class="control-label">confirm password</label>
+                                <input type="password" name="confirm-password" id="confirm-password" class="form-control">
+                            </div>
+                            {% if error %}
+                            <div class="form-group text-danger">
+                                {{error}}
+                            </div>
+                            {% endif %}
                             <div class="form-group">
                                 <button class="btn btn-primary" type=submit>
                                     Submit
